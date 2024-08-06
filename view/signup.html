@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="./CSS/signup.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>SIGNUP USER</h1>
+        <form id="SignupData">
+
+            <input type="text" id="Uname" placeholder="Enter Uname...">
+            <input type="email" id="email" placeholder="Enter Email...">
+            <input type="password" id="password" placeholder="Enter password...">
+            <input type="submit" id="signup" value="Signup">
+        </form>
+
+    </div>
+</body>
+
+<script>
+    import { createUser } from "../../API/user.api.js";
+
+    const signupData = (e) => {
+        e.preventDefault();
+        const name = document.getElementById("Uname").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const user = {
+            name,
+            email,
+            password,
+        };
+        createUser(user)
+    };
+
+    document.getElementById("SignupData").addEventListener("submit", signupData);
+</script>
+
+</html>

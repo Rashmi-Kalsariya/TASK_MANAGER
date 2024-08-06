@@ -1,0 +1,25 @@
+.container{
+    height: 400px;
+    width: 300px;
+    background-color: rgb(0, 0, 0);
+    margin: 120px auto;
+    padding: 20px 40px;
+}
+
+
+input{
+    padding: 10px;
+    margin: 40px 0;
+    display: block;
+    width: 90%;
+}
+
+
+#signup{
+    width: 98%;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}

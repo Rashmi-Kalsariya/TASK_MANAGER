@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./CSS/login.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>LOGIN USER</h1>
+        <form id="LoginData">
+            <input type="email" id="email" placeholder="Enter Email...">
+            <input type="password" id="password" placeholder="Enter password...">
+            <input type="submit" id="Login"  value="Login">
+        </form>
+    </div>
+
+</body>
+
+<script>
+    import { getUserData, Loginuser } from "../../API/user.api.js";
+
+    const loginForm = async (e) => {
+        e.preventDefault();
+        const data = await getUserData();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const user = {
+            email,
+            password,
+        };
+        console.log(data, user);
+        Loginuser(user);
+    };
+
+    document.getElementById("LoginData").addEventListener("submit", loginForm);
+</script>
+
+</html>
