@@ -1,6 +1,7 @@
 const isValid = (req, res, next) => {
-    let { username, email, password } = req.params;
-    if (username && email && password) {
+    let { name, email, password } = req.body;
+
+    if (name && email && password) {
         next();
     } else {
         return res.status(400).json({ error: "InCompleted UserData." });

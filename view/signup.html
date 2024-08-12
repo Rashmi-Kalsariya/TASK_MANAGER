@@ -23,24 +23,8 @@
     </div>
 </body>
 
-<script>
-    import { createUser } from "../../API/user.api.js";
+<script type="module" src="./JS/signup.js"></script>
 
-    const signupData = (e) => {
-        e.preventDefault();
-        const name = document.getElementById("Uname").value;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
 
-        const user = {
-            name,
-            email,
-            password,
-        };
-        createUser(user)
-    };
-
-    document.getElementById("SignupData").addEventListener("submit", signupData);
-</script>
 
 </html>

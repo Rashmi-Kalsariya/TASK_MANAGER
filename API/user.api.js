@@ -13,6 +13,7 @@ const createUser = async (data) => {
             },
             body: JSON.stringify(data),
         });
+        
     } catch (error) {
         console.error("Error:", error);
     }

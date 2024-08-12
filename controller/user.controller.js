@@ -11,18 +11,35 @@ const GetUser = async (req, res) => {
 
 
 const CreateUser = async (req, res) => {
-    let data = await User.create(req.body)
-    res.status(201).send(data)
+
+    let { email } = req.body
+    console.log(req.body);
+
+    let isUser = await User.findOne({ email: email })
+    if (isUser) {
+        res.send({ message: "User already exists" })
+    }
+    else {
+        let data = await User.create(req.body)
+        res.send(data)
+
+    }
 }
 
-
 const LoginData = async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (!user || user.password !== password) {
-        return res.send("Invalid User Password")
+    let { email, password } = req.body
+    let isUser = await User.findOne({ email: email })
+    console.log("isUser: " + isUser);
+    if (!isUser) {
+        return res.send({ message: "user not found" })
     }
-    res.status(200).send({ message: "Login User Successfully" });
+
+    if (isUser.password !== password) {
+        return res.send({ message: "password is incorrect" })
+    }
+
+    res.send({ message: "log in successfully", User: isUser })
+
 }
 
 

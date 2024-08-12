@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { GetUser, CreateUser, LoginData } = require("../controller/user.controller")
+const { CreateUser, LoginData } = require("../controller/user.controller")
 const isValid = require("../middleware/UserValid")
 
 
@@ -8,8 +8,7 @@ const isValid = require("../middleware/UserValid")
 const userRouter = Router()
 
 
-userRouter.get("/", GetUser)
-userRouter.post("/", isValid, CreateUser)
+userRouter.post("/signup", isValid, CreateUser)
 userRouter.post("/Login", LoginData)
 
 
